@@ -6,6 +6,7 @@ public class Main {
         for (; firstFriday <= 31; firstFriday += 7) {
             System.out.println("«Сегодня пятница, " + firstFriday + " число. Необходимо подготовить отчет».");
         }
+
         //Задача 2
         int distance = 0;
         do {
@@ -17,6 +18,7 @@ public class Main {
         for (; distance <= 42195; distance += 500) {
             System.out.println("Держитесь! Осталось " + (42195 - distance) + " метров");
         }
+
         //Задача 3
         int buget = 1000;
         int countDay = 0;
@@ -37,6 +39,7 @@ public class Main {
             }
             System.out.println("День " + countDay + " бюджет:" + (buget -= 100));
         }
+
         //Задача 4
         int month = 0;
         int total = 0;
@@ -44,7 +47,6 @@ public class Main {
             if (month % 6 == 0) {
                 total += ((total / 100) * 7);
             }
-
             System.out.println("Месяц " + month + " общая сумма накоплений:" + total);
             total += 15000;
             if (total >= 12_000_000) {
@@ -52,6 +54,7 @@ public class Main {
             }
             month++;
         }
+
         //Задача 5
         int charge = 20;
         int minute = 0;
