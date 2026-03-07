@@ -9,36 +9,45 @@ public class Main {
 
         //Задача 2
         int distance = 0;
+        int distanceToFinish = 0;
         do {
-            System.out.println("Держитесь! Осталось " + (42195 - distance) + " метров");
+            distanceToFinish = 42195 - distance;
+            System.out.println("Держитесь! Осталось " + distanceToFinish + " метров");
             distance += 500;
         } while (distance < 42195);
 
         distance = 0;
+        distanceToFinish = 0;
         for (; distance <= 42195; distance += 500) {
-            System.out.println("Держитесь! Осталось " + (42195 - distance) + " метров");
+            distanceToFinish = 42195 - distance;
+            System.out.println("Держитесь! Осталось " + distanceToFinish + " метров");
         }
 
         //Задача 3
         int buget = 1000;
         int countDay = 0;
-        while (buget > 0) {
+        int balanceMoney = buget;
+        int payment = 100;
+        while (balanceMoney > 0) {
             countDay++;
             if (countDay % 5 == 0) {
                 continue;
+            } else {
+                balanceMoney -= payment;
             }
-            System.out.println("День " + countDay + " бюджет:" + (buget -= 100));
         }
+        System.out.println("При стоимости парковки: " + payment + " руб., бюджета: " + buget + " руб. достаточно на " + countDay + " дней парковки");
 
-        buget = 1000;
-        countDay = 0;
-        for (; buget > 0; ) {
+        balanceMoney = buget;
+        for (countDay = 0; balanceMoney > 0; ) {
             countDay++;
             if (countDay % 5 == 0) {
                 continue;
+            } else {
+                balanceMoney -= payment;
             }
-            System.out.println("День " + countDay + " бюджет:" + (buget -= 100));
         }
+        System.out.println("При стоимости парковки: " + payment + " руб., бюджета: " + buget + " руб. достаточно на " + countDay + " дней парковки");
 
         //Задача 4
         int month = 0;
@@ -60,16 +69,16 @@ public class Main {
         int minute = 0;
         int overheats = 0;
         while (charge <= 100 && overheats <= 3) {
-            if (minute % 10 == 0 && minute > 0) {
+            minute++;
+            if (minute % 10 == 0) {
                 overheats++;
+                if (overheats == 3) {
+                    System.out.println("Зарядка прекращена. Текущий заряд: " + charge + " %");
+                    break;
+                }
                 minute += 2;
                 continue;
             }
-            if (overheats == 3) {
-                System.out.println("Зарядка прекращена. Текущий заряд: " + charge + " %");
-                break;
-            }
-            minute++;
             charge += 2;
         }
         System.out.println("Время зарядки составило " + minute + " минут");
