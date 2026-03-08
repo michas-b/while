@@ -28,23 +28,33 @@ public class Main {
         int countDay = 0;
         int balanceMoney = buget;
         int payment = 100;
-        while (balanceMoney > 0) {
+        while (balanceMoney >= 0) {
             countDay++;
             if (countDay % 5 == 0) {
                 continue;
             } else {
-                balanceMoney -= payment;
+                if (balanceMoney >= payment) {
+                    balanceMoney -= payment;
+                } else {
+                    countDay--;
+                    break;
+                }
             }
         }
         System.out.println("При стоимости парковки: " + payment + " руб., бюджета: " + buget + " руб. достаточно на " + countDay + " дней парковки");
 
         balanceMoney = buget;
-        for (countDay = 0; balanceMoney > 0; ) {
+        for (countDay = 0; balanceMoney >= 0; ) {
             countDay++;
             if (countDay % 5 == 0) {
                 continue;
             } else {
-                balanceMoney -= payment;
+                if (balanceMoney >= payment) {
+                    balanceMoney -= payment;
+                } else {
+                    countDay--;
+                    break;
+                }
             }
         }
         System.out.println("При стоимости парковки: " + payment + " руб., бюджета: " + buget + " руб. достаточно на " + countDay + " дней парковки");
